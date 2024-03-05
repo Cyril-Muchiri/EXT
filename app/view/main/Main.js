@@ -78,9 +78,9 @@ Ext.define('MsTraining.view.main.Main', {
         title: 'Posts',
         iconCls: 'fa-user',
         items: [
-            /* {
+            {
                 xtype: 'postgrid'
-            } */
+            } 
         ]
     },
     {
