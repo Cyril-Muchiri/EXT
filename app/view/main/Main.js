@@ -78,9 +78,9 @@ Ext.define('MsTraining.view.main.Main', {
         title: 'Posts',
         iconCls: 'fa-user',
         items: [
-            {
-                xtype: 'postgrid'
-            } 
+            // {
+            //     xtype: 'postgrid'
+            // } 
         ]
     },
     {
@@ -99,6 +99,13 @@ Ext.define('MsTraining.view.main.Main', {
                 xtype: 'parentpanel'
             }
         ]
+    },
+    {
+        title: 'Checkout',
+        iconCls: 'fa-solid fa-cart-plus',
+        items: [{
+           xtype: 'checkoutform'
+        }]
     },
     {
         title: 'Settings',
