@@ -6,7 +6,7 @@ Ext.define('MsTraining.view.fmviews.StaticDataManagementTabPanel',{
         title: 'Posts',
         items: [
            {
-                xtype:'postgrid'
+                // xtype:'postgrid'
            }
         ]
     }, {

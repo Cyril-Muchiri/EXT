@@ -24,6 +24,7 @@ Ext.define('MsTraining.view.posts.PostGrid', {
             click: 'onLayoutsClicked'
         }
     }],
+    
     columns: [
         { dataIndex: '_id', text: 'ID' },
         { dataIndex: 'title', text: 'Title', flex: 1 },

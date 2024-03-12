@@ -75,12 +75,20 @@ Ext.define('MsTraining.view.main.Main', {
     },
 
     items: [{
+        title: 'Static Data Management',
+        iconCls: 'fa-users',
+        items: [
+            {
+                xtype: 'parentpanel'
+            }
+        ]
+    }, {
         title: 'Posts',
         iconCls: 'fa-user',
         items: [
-            // {
-            //     xtype: 'postgrid'
-            // } 
+            /* {
+                xtype: 'postgrid'
+            } */
         ]
     },
     {
@@ -91,22 +99,7 @@ Ext.define('MsTraining.view.main.Main', {
             xtype: 'mainlist'
         }]
     },
-    {
-        title: 'Static Data Management',
-        iconCls: 'fa-users',
-        items: [
-            {
-                xtype: 'parentpanel'
-            }
-        ]
-    },
-    {
-        title: 'Checkout',
-        iconCls: 'fa-solid fa-cart-plus',
-        items: [{
-           xtype: 'checkoutform'
-        }]
-    },
+  
     {
         title: 'Settings',
         iconCls: 'fa-cog',

@@ -1,53 +1,81 @@
-Ext.define('MsTraining.view.users.UserGrid',{
-    extend:'Ext.grid.GridPanel',
-    xtype:'usergrid',
-    controller:'usergridcontroller',
-    title:'Users',
-    store:{
-        type:'users'
+Ext.define('MsTraining.view.users.UserGrid', {
+    extend: 'Ext.grid.GridPanel',
+    xtype: 'usergrid',
+    reference:'usergrid',
+    controller: 'usergridcontroller',
+    title: 'Users',
+    store: {
+        type: 'users'
     },
-    height:1000,
-    columns:[
+    height: 1000,
+    plugins: {
+        cellediting: {
+            clicksToEdit: 1
+        }
+    },
+    selModel: {
+        selType: 'cellmodel',
+    },
+    columns: [
+            // {xtype: 'rownumberer'},
         {
-            dataIndex:'_id',
+            dataIndex: '_id',
             text: 'ID'
         },
         {
             dataIndex: 'username',
             text: 'Username',
-            flex:2,
+            flex: 2,
+            editor: 'textfield'
         },
         {
             dataIndex: 'email',
             text: 'Email',
-            flex:3
+            flex: 3,
+            renderer: function (value) {
+                return Ext.String.format('<a href="mailto:{0}">{1}</a>', value, value);
+            },
+            editor: {
+                xtype: 'textfield',
+                completeOnEnter: false,
+                allowBlank: false
+            }
         },
         {
             dataIndex: 'city',
             text: 'City',
-            flex:2
+            flex: 2
         }
     ],
-    tbar:[
+    tbar: [
         {
             text: 'Add User'
         },
-        '->',
         {
-          text:'Show Details',
-          handler:'onShowDetails'  
+            text: 'Model Binding',
+            handler: 'onModelBinding'
+        },
+        // '->',
+        {
+            xtype: 'tbfill'
+        },
+        {
+            text: 'Show Details',
+            handler: 'onShowDetails',
+            bind: {
+                disabled: '{!usergrid.selection}'
+            }
         }
     ],
-    selModel: {
-        selType: 'checkboxmodel',
-        mode: 'SINGLE'
-    },
+   
     bbar: {
         xtype: 'pagingtoolbar',
         displayInfo: true
     },
-    listeners:{
-        cellclick:'onUserGridCellClick'
+    listeners: {
+        cellclick: 'onUserGridCellClick',
+        celldblclick:'onUserGridCellDblClick',
+        cellcontextmenu:'onUserGridCellContextMenu'
     }
-   
+
 })
